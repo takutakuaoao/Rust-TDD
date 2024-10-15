@@ -1,0 +1,11 @@
+version: '3.8'
+
+services:
+  rust:
+    container_name: rust-sample
+    image: rust:latest
+    volumes:
+      - ..:/rust
+    working_dir: /rust
+    tty: true
+    stdin_open: true
