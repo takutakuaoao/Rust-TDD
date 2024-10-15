@@ -1,0 +1,17 @@
+{
+  "name": "Rust TDD tutorial Dev container",
+  "workspaceFolder": "/rust",
+  "dockerComposeFile": "../docker/docker-compose.yml",
+  "service": "rust",
+  "customizations": {
+    "vscode": {
+      "settings": {},
+
+      "extensions": [
+        "wmaurer.vscode-jumpy",
+        "intellsmi.comment-translate",
+        "streetsidesoftware.code-spell-checker"
+      ]
+    }
+  }
+}
