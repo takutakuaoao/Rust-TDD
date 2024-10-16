@@ -1,4 +1,5 @@
 #[allow(dead_code)]
+#[derive(PartialEq, Eq)]
 struct Dollar {
     pub amount: u8,
 }
@@ -24,5 +25,10 @@ mod tests {
 
         product = five.times(3);
         assert_eq!(15, product.amount);
+    }
+
+    #[test]
+    fn equality() {
+        assert_eq!(Dollar { amount: 5 } == Dollar { amount: 5 }, true);
     }
 }
