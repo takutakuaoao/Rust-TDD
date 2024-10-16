@@ -5,8 +5,10 @@ struct Dollar {
 
 impl Dollar {
     #[allow(dead_code)]
-    fn times(&mut self, multiplier: u8) {
-        self.amount *= multiplier
+    fn times(&self, multiplier: u8) -> Dollar {
+        return Dollar {
+            amount: self.amount * multiplier,
+        };
     }
 }
 
@@ -15,8 +17,12 @@ mod tests {
     use crate::money::Dollar;
     #[test]
     fn multiplication() {
-        let mut five = Dollar { amount: 5 };
-        five.times(2);
-        assert_eq!(10, five.amount);
+        let five = Dollar { amount: 5 };
+
+        let mut product = five.times(2);
+        assert_eq!(10, product.amount);
+
+        product = five.times(3);
+        assert_eq!(15, product.amount);
     }
 }
