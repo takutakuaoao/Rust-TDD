@@ -1,13 +1,13 @@
 #[allow(dead_code)]
-#[derive(PartialEq, Eq)]
+#[derive(PartialEq, Eq, Debug)]
 struct Dollar {
-    pub amount: u8,
+    amount: u8,
 }
 
 impl Dollar {
     #[allow(dead_code)]
     fn times(&self, multiplier: u8) -> Dollar {
-        return Dollar {
+        return Self {
             amount: self.amount * multiplier,
         };
     }
@@ -20,15 +20,12 @@ mod tests {
     fn multiplication() {
         let five = Dollar { amount: 5 };
 
-        let mut product = five.times(2);
-        assert_eq!(10, product.amount);
-
-        product = five.times(3);
-        assert_eq!(15, product.amount);
+        assert_eq!(Dollar { amount: 10 }, five.times(2));
+        assert_eq!(Dollar { amount: 15 }, five.times(3));
     }
 
     #[test]
     fn equality() {
-        assert_eq!(Dollar { amount: 5 } == Dollar { amount: 5 }, true);
+        assert_eq!(Dollar { amount: 5 }, Dollar { amount: 5 });
     }
 }
