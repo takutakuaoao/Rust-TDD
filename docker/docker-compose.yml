@@ -3,7 +3,8 @@ version: '3.8'
 services:
   rust:
     container_name: rust-sample
-    image: rust:latest
+    build:
+      context: .
     volumes:
       - ..:/rust
     working_dir: /rust
